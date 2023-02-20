@@ -54,5 +54,21 @@ else:
     print('У всех людей разные дни рождения')
 print()
 
+print(f'Сейчас мы сгенерируем группы по {numBDays} человек 100_000 раз')
+input('Нажмите Enter, чтобы начать моделирование')
 
+simMatch = 0
+for i in range(100_000):
+    if i % 10_000 == 0:
+        print('Симуляция идёт...')
+    birthdays = getBirthday(numBDays)
+    match = getMatch(birthdays)
+    if match != simMatch:
+        simMatch += 1
+print('Успешно прошло 100_000 симуляций')
 
+probability = round(simMatch / 100_000 * 100, 2)
+
+print(f'''В 100_000 симуляций из {numBDays} человек в каждой группе день рождение совпал в {simMatch} группах.
+Это означает, что в группе из {numBDays} человек шанс того, что хотя бы у двух людей день рождения в один день равен {probability}%
+Скорее всего, вы думали, что % будет намного меньше)))''')
