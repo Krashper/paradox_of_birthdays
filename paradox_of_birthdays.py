@@ -2,7 +2,7 @@ import random, datetime
 
 def getBirthday(numBDays):
     birthdays = []
-    for i in range( numBDays):
+    for i in range(numBDays):
         stateOfDate = datetime.date(2000, 1, 1)
         randomNumOfDays = datetime.timedelta(random.randint(0, 364))
         birthday = stateOfDate + randomNumOfDays
@@ -63,7 +63,7 @@ for i in range(100_000):
         print('Симуляция идёт...')
     birthdays = getBirthday(numBDays)
     match = getMatch(birthdays)
-    if match != simMatch:
+    if match != None:
         simMatch += 1
 print('Успешно прошло 100_000 симуляций')
 
