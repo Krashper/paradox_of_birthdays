@@ -8,3 +8,12 @@ def getBirthday(numBDays):
         birthday = stateOfDate + randomNumOfDays
         birthdays.append(birthday)
     return birthdays
+
+
+def getMatch(birthdays):
+    if len(birthdays) == len(set(birthdays)):
+        return None
+    for a, birthdayA in enumerate(birthdays):
+        for birthdayB in birthdays[a + 1:]:
+            if birthdayA == birthdayB:
+                return birthdayA
